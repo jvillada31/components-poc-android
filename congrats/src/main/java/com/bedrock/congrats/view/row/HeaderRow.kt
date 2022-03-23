@@ -18,8 +18,6 @@ import androidx.compose.ui.unit.dp
 @ExperimentalMaterial3Api
 @Composable
 fun HeaderRow(
-//    viewModel: CharactersViewModel = getViewModel(),
-//    dto: CharacterDto,
     onDetailClick: () -> Unit = {}
 ) {
     Card(
@@ -45,6 +43,7 @@ fun HeaderRow(
     }
 }
 
+@ExperimentalMaterial3Api
 @Preview(
     showBackground = true,
     name = "Light Mode"
@@ -55,8 +54,9 @@ fun HeaderRow(
     name = "Dark Mode"
 )
 @Composable
-fun CharacterRowPreview() {
-//    JetRortyTheme {
-//        CharacterRow(dto = CharacterDto.init())
+fun HeaderRowPreview() {
+    // TODO: Provide this theme through another common module
+//    ComponentsPOCTheme {
+        HeaderRow()
 //    }
 }
