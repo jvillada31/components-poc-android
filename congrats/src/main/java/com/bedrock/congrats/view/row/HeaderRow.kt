@@ -1,44 +1,66 @@
 package com.bedrock.congrats.view.row
 
 import android.content.res.Configuration
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.bedrock.congrats.R
+import com.bedrock.congrats.ui.theme.ComponentsPOCTheme
+import com.bedrock.congrats.ui.theme.Green
 
 @ExperimentalMaterial3Api
 @Composable
 fun HeaderRow(
-    onDetailClick: () -> Unit = {}
+    title: String,
+    label: String,
+    @DrawableRes icon: Int,
+    @DrawableRes badge: Int,
+    onCloseClick: () -> Unit = {}
 ) {
-    Card(
-        onClick = onDetailClick,
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
+            .background(color = Green)
+            .padding(all = 32.dp)
             .height(100.dp)
-            .padding(
-                vertical = 4.dp,
-                horizontal = 8.dp
-            ),
-        elevation = CardDefaults.cardElevation()
+            .fillMaxWidth(),
     ) {
-        Row {
-            Text(
-                text = "Congrats component",
+        Row(
+            modifier = Modifier
+                .padding(bottom = 16.dp)
+                .fillMaxWidth()
+        ) {
+            IconButton(
+                onClick = onCloseClick,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 2.dp),
-                style = MaterialTheme.typography.headlineMedium
-            )
+                    .width(24.dp)
+                    .height(24.dp)
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.congrats_ic_header_close),
+                    contentDescription = null, // decorative element
+                    tint = Color.White
+                )
+            }
+        }
+        Row {
+            Text(text = title, color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
         }
     }
 }
@@ -56,7 +78,12 @@ fun HeaderRow(
 @Composable
 fun HeaderRowPreview() {
     // TODO: Provide this theme through another common module
-//    ComponentsPOCTheme {
-        HeaderRow()
-//    }
+    ComponentsPOCTheme {
+        HeaderRow(
+            title = "Congrats pantalla verde",
+            label = "",
+            icon = R.drawable.congrats_ic_product,
+            badge = R.drawable.congrats_ic_badge_check
+        )
+    }
 }
