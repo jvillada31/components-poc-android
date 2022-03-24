@@ -24,6 +24,7 @@ import com.bedrock.congrats.ui.theme.Green
 @ExperimentalMaterial3Api
 @Composable
 fun HeaderRow(
+    backgroundColor: Color,
     title: String,
     label: String,
     @DrawableRes icon: Int,
@@ -32,7 +33,7 @@ fun HeaderRow(
 ) {
     Column(
         modifier = Modifier
-            .background(color = Green)
+            .background(color = backgroundColor)
             .padding(all = 32.dp)
             .height(100.dp)
             .fillMaxWidth(),
@@ -91,6 +92,7 @@ fun HeaderRowPreview() {
     // TODO: Provide this theme through another common module
     ComponentsPOCTheme {
         HeaderRow(
+            backgroundColor = Green,
             title = "Congrats pantalla verde",
             label = "",
             icon = R.drawable.congrats_ic_product,

@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,6 +14,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.bedrock.congrats.R
 import com.bedrock.congrats.ui.theme.ComponentsPOCTheme
+import com.bedrock.congrats.ui.theme.Green
+import com.bedrock.congrats.ui.theme.Orange
+import com.bedrock.congrats.ui.theme.Red
 import com.bedrock.congrats.view.row.HeaderRow
 import timber.log.Timber
 
@@ -34,13 +34,40 @@ class MainActivity : ComponentActivity() {
                             .fillMaxWidth()
                             .fillMaxHeight(),
                     ) {
-                        HeaderRow(
-                            title = "Congrats pantalla verde",
-                            label = "",
-                            icon = R.drawable.congrats_ic_product,
-                            badge = R.drawable.congrats_ic_badge_check
-                        ) {
-                            Timber.d("Hello Congrats :)")
+                        Row {
+                            HeaderRow(
+                                backgroundColor = Green,
+                                title = "Congrats pantalla verde",
+                                label = "",
+                                icon = R.drawable.congrats_ic_product,
+                                badge = R.drawable.congrats_ic_badge_check
+                            ) {
+                                Timber.d("Hello Congrats :)")
+                            }
+                        }
+
+                        Row {
+                            HeaderRow(
+                                backgroundColor = Orange,
+                                title = "Congrats pantalla naranja",
+                                label = "",
+                                icon = R.drawable.congrats_ic_product,
+                                badge = R.drawable.congrats_ic_badge_check
+                            ) {
+                                Timber.d("Hello Congrats :)")
+                            }
+                        }
+
+                        Row {
+                            HeaderRow(
+                                backgroundColor = Red,
+                                title = "Congrats pantalla roja",
+                                label = "",
+                                icon = R.drawable.congrats_ic_product,
+                                badge = R.drawable.congrats_ic_badge_check
+                            ) {
+                                Timber.d("Hello Congrats :)")
+                            }
                         }
                     }
                 }
@@ -55,6 +82,7 @@ class MainActivity : ComponentActivity() {
 fun DefaultPreview() {
     ComponentsPOCTheme {
         HeaderRow(
+            backgroundColor = Green,
             title = "Congrats pantalla verde",
             label = "",
             icon = R.drawable.congrats_ic_product,
