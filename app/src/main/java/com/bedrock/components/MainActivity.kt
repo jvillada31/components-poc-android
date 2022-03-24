@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
                                 icon = R.drawable.congrats_ic_product,
                                 badge = R.drawable.congrats_ic_badge_check
                             ) {
-                                Timber.d("Hello Congrats :)")
+                                Timber.d("Hello green Congrats :)")
                             }
                         }
 
@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
                                 icon = R.drawable.congrats_ic_product,
                                 badge = R.drawable.congrats_ic_badge_check
                             ) {
-                                Timber.d("Hello Congrats :)")
+                                Timber.d("Hello orange Congrats :)")
                             }
                         }
 
@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
                                 icon = R.drawable.congrats_ic_product,
                                 badge = R.drawable.congrats_ic_badge_check
                             ) {
-                                Timber.d("Hello Congrats :)")
+                                Timber.d("Hello red Congrats :)")
                             }
                         }
                     }
