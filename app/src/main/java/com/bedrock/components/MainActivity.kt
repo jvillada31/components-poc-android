@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                         Row {
                             HeaderRow(
                                 backgroundColor = Green,
-                                title = "Congrats pantalla verde",
+                                title = "Congrats pantalla verde, Congrats pantalla verde, Congrats pantalla verde",
                                 label = "",
                                 icon = R.drawable.congrats_ic_product,
                                 badge = R.drawable.congrats_ic_badge_check
