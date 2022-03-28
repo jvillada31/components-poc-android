@@ -18,7 +18,7 @@ import com.bedrock.congrats.R
 import com.bedrock.congrats.ui.theme.ComponentsPOCTheme
 import com.bedrock.congrats.ui.theme.Green
 import com.bedrock.congrats.view.row.ButtonRow
-import com.bedrock.congrats.view.row.ButtonState
+import com.bedrock.congrats.view.row.ButtonViewState
 import com.bedrock.congrats.view.row.ButtonType
 import com.bedrock.congrats.view.row.HeaderRow
 import timber.log.Timber
@@ -53,13 +53,13 @@ class MainActivity : ComponentActivity() {
                             verticalAlignment = Alignment.Bottom
                         ) {
                             ButtonRow(
-                                primaryButton = ButtonState(
+                                primaryButton = ButtonViewState(
                                     type = ButtonType.PRIMARY,
                                     label = "Ver más",
                                     contentDescription = "Este boton te da la opcion de ver más cosas",
                                     action = { Toast.makeText(this@MainActivity, "Viendo más cosas....", Toast.LENGTH_LONG).show() }
                                 ),
-                                secondaryButton = ButtonState(
+                                secondaryButton = ButtonViewState(
                                     type = ButtonType.TRANSPARENT,
                                     label = "Volver al inicio",
                                     contentDescription = "Este boton te pueden devolver al incio de la aplicaión",

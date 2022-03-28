@@ -16,8 +16,8 @@ import com.bedrock.congrats.ui.theme.ComponentsPOCTheme
 @ExperimentalMaterial3Api
 @Composable
 fun ButtonRow(
-    primaryButton: ButtonState,
-    secondaryButton: ButtonState? = null
+    primaryButton: ButtonViewState,
+    secondaryButton: ButtonViewState? = null
 ) {
     Column(
         modifier = Modifier
@@ -39,20 +39,20 @@ fun ButtonRow(
 
 @Composable
 private fun ButtonView(
-    buttonState: ButtonState
+    buttonViewState: ButtonViewState
 ) {
     Button(
         modifier = Modifier
             .fillMaxWidth(),
         shape = RoundedCornerShape(5.dp),
         colors = buttonColors(
-            containerColor = buttonState.type.backgroundColor,
-            contentColor = buttonState.type.textColor,
+            containerColor = buttonViewState.type.backgroundColor,
+            contentColor = buttonViewState.type.textColor,
         ),
-        onClick = buttonState.action
+        onClick = buttonViewState.action
     ) {
         Text(
-            text = buttonState.label,
+            text = buttonViewState.label,
             fontSize = 16.sp
         )
     }
@@ -68,12 +68,12 @@ fun ButtonRowPreview() {
     // TODO: Provide this theme through another common module
     ComponentsPOCTheme {
         ButtonRow(
-            primaryButton = ButtonState(
+            primaryButton = ButtonViewState(
                 label = "Ver más",
                 type = ButtonType.PRIMARY,
                 action = {}
             ),
-            secondaryButton = ButtonState(
+            secondaryButton = ButtonViewState(
                 label = "Volver al inicio",
                 type = ButtonType.SECONDARY,
                 action = {}
@@ -92,12 +92,12 @@ fun ButtonRowPreviewTransparent() {
     // TODO: Provide this theme through another common module
     ComponentsPOCTheme {
         ButtonRow(
-            primaryButton = ButtonState(
+            primaryButton = ButtonViewState(
                 label = "Ver más",
                 type = ButtonType.PRIMARY,
                 action = {}
             ),
-            secondaryButton = ButtonState(
+            secondaryButton = ButtonViewState(
                 label = "Volver al inicio",
                 type = ButtonType.TRANSPARENT,
                 action = {}
