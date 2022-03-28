@@ -1,6 +1,7 @@
 package com.bedrock.components
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -9,14 +10,16 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.bedrock.congrats.R
 import com.bedrock.congrats.ui.theme.ComponentsPOCTheme
 import com.bedrock.congrats.ui.theme.Green
-import com.bedrock.congrats.ui.theme.Orange
-import com.bedrock.congrats.ui.theme.Red
+import com.bedrock.congrats.view.row.ButtonRow
+import com.bedrock.congrats.view.row.ButtonState
+import com.bedrock.congrats.view.row.ButtonType
 import com.bedrock.congrats.view.row.HeaderRow
 import timber.log.Timber
 
@@ -46,28 +49,23 @@ class MainActivity : ComponentActivity() {
                             }
                         }
 
-                        Row {
-                            HeaderRow(
-                                backgroundColor = Orange,
-                                title = "Congrats pantalla naranja",
-                                label = "",
-                                icon = R.drawable.congrats_ic_product,
-                                badge = R.drawable.congrats_ic_badge_check
-                            ) {
-                                Timber.d("Hello orange Congrats :)")
-                            }
-                        }
-
-                        Row {
-                            HeaderRow(
-                                backgroundColor = Red,
-                                title = "Congrats pantalla roja",
-                                label = "",
-                                icon = R.drawable.congrats_ic_product,
-                                badge = R.drawable.congrats_ic_badge_check
-                            ) {
-                                Timber.d("Hello red Congrats :)")
-                            }
+                        Row(
+                            verticalAlignment = Alignment.Bottom
+                        ) {
+                            ButtonRow(
+                                primaryButton = ButtonState(
+                                    type = ButtonType.PRIMARY,
+                                    label = "Ver más",
+                                    contentDescription = "Este boton te da la opcion de ver más cosas",
+                                    action = { Toast.makeText(this@MainActivity, "Viendo más cosas....", Toast.LENGTH_LONG).show() }
+                                ),
+                                secondaryButton = ButtonState(
+                                    type = ButtonType.TRANSPARENT,
+                                    label = "Volver al inicio",
+                                    contentDescription = "Este boton te pueden devolver al incio de la aplicaión",
+                                    action = { Toast.makeText(this@MainActivity, "Saliendo....", Toast.LENGTH_LONG).show() }
+                                )
+                            )
                         }
                     }
                 }

@@ -49,7 +49,7 @@ private fun ButtonView(
             containerColor = buttonState.type.backgroundColor,
             contentColor = buttonState.type.textColor,
         ),
-        onClick = buttonState.action,
+        onClick = buttonState.action
     ) {
         Text(
             text = buttonState.label,
