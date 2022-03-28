@@ -1,25 +1,18 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
 }
 
 android {
-    namespace 'com.bedrock.components'
+    namespace 'com.bedrock.congrats'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.bedrock.components"
         minSdk 23
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary true
-        }
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -50,45 +43,39 @@ android {
 
 dependencies {
 
-    // Congrats
-    implementation(project(":congrats"))
-
     // Android framework
     implementation "androidx.core:core-ktx:$ktx_core_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
-    implementation "androidx.activity:activity-compose:$compose_activity_version"
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+    implementation "com.google.android.material:material:$material_version"
 
     // Compose
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
 
-    // Material 3
-    implementation "androidx.compose.material3:material3:$material_3_version"
+    // Compose - Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation "androidx.compose.foundation:foundation:$compose_version"
 
-    // Dagger Hilt
-    implementation "com.google.dagger:hilt-android:$dagger_hilt_version"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodel_version"
-    implementation "androidx.hilt:hilt-navigation-fragment:$hilt_navigation_version"
-    kapt "com.google.dagger:hilt-android-compiler:$dagger_hilt_version"
-    kapt "androidx.hilt:hilt-compiler:$hilt_compiler_version"
+    // Compose - Integration with activities
+    implementation "androidx.activity:activity-compose:$compose_activity_version"
 
-    // Logging
-    implementation "com.jakewharton.timber:timber:$timber_version"
+    // Compose - Integration with ViewModels
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$compose_viewmodel_version"
 
-    // Debug Compose
+    // Compose - Tooling support (Previews, etc.)
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 
+    // Material Design
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.material:material-icons-core:$compose_version"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "androidx.compose.material3:material3:$material_3_version"
+
     // Unit test
     testImplementation "junit:junit:$junit_version"
-    testImplementation "io.mockk:mockk:$mockk_version"
-    testImplementation "androidx.arch.core:core-testing:$arch_core_testing_version"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
 
     // Android test
     androidTestImplementation "androidx.test.ext:junit:$junit_ui_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    androidTestImplementation "com.google.dagger:hilt-android:$dagger_hilt_version"
-    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$dagger_hilt_version"
 }

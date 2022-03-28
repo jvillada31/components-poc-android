@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/app/src/main/java/com/bedrock/components/MainActivity.kt" value="1.0" />
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/congrats/src/main/java/com/bedrock/congrats/view/row/HeaderRow.kt" value="0.36574074074074076" />
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/congrats/src/main/res/drawable/congrats_header_close_icon.xml" value="0.138" />
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/congrats/src/main/res/drawable/congrats_ic_badge_warning_icon.xml" value="0.175" />
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/congrats/src/main/res/drawable/congrats_ic_header_close.xml" value="0.1895" />
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/congrats/src/main/res/drawable/congrats_ic_product.xml" value="0.2545" />
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/congrats/src/main/res/drawable/px_badge_check_icon.xml" value="0.1895" />
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/congrats/src/main/res/drawable/px_badge_error.xml" value="0.1895" />
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/congrats/src/main/res/drawable/px_badge_pending.xml" value="0.1725" />
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/congrats/src/main/res/drawable/px_badge_pending_icon.xml" value="0.1895" />
+        <entry key="..\:/Documents/Meli/PX/components-poc-android/congrats/src/main/res/drawable/px_badge_warning_icon.xml" value="0.1725" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11 (2)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
