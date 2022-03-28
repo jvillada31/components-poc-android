@@ -3,7 +3,7 @@ package com.bedrock.congrats.view.row
 import androidx.compose.ui.graphics.Color
 import com.bedrock.congrats.ui.theme.PrimaryButtonColor
 import com.bedrock.congrats.ui.theme.SecondaryButtonColor
-import com.bedrock.congrats.ui.theme.TransparentColor
+import com.bedrock.congrats.ui.theme.TransparentButtonColor
 
 data class ButtonViewState(
     val type: ButtonType,
@@ -15,5 +15,5 @@ data class ButtonViewState(
 enum class ButtonType(val backgroundColor: Color, val textColor: Color) {
     PRIMARY(PrimaryButtonColor, Color.White),
     SECONDARY(SecondaryButtonColor, PrimaryButtonColor),
-    TRANSPARENT(TransparentColor, PrimaryButtonColor)
+    TRANSPARENT(TransparentButtonColor, PrimaryButtonColor)
 }
