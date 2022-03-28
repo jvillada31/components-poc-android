@@ -1,28 +1,23 @@
 package com.bedrock.congrats.view.row
 
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bedrock.congrats.ui.theme.ComponentsPOCTheme
-import com.bedrock.congrats.ui.theme.PrimaryButton
-import com.bedrock.congrats.ui.theme.SecondaryButton
 
 @ExperimentalMaterial3Api
 @Composable
 fun ButtonRow(
-    primaryButton: ButtonData,
-    secondaryButton: ButtonData? = null
+    primaryButton: ButtonState,
+    secondaryButton: ButtonState? = null
 ) {
     Column(
         modifier = Modifier
@@ -30,61 +25,36 @@ fun ButtonRow(
             .fillMaxWidth()
     ) {
         Row {
-            when (primaryButton.type) {
-                ButtonType.PRIMARY -> {
-                    Button(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        shape = RoundedCornerShape(5.dp),
-                        colors = buttonColors(
-                            containerColor = PrimaryButton,
-                            contentColor = Color.White,
-                        ),
-                        onClick = primaryButton.action,
-                    ) {
-                        Text(
-                            text = primaryButton.label,
-                            fontSize = 16.sp
-                        )
-                    }
-                }
-                ButtonType.DEFAULT -> {
-                    TextButton(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        onClick = primaryButton.action,
-                    ) {
-                        Text(
-                            text = primaryButton.label,
-                            fontSize = 16.sp,
-                            color = PrimaryButton
-                        )
-                    }
-                }
-                else -> {}
-            }
+            ButtonView(primaryButton)
         }
 
         secondaryButton?.let {
             Spacer(modifier = Modifier.size(8.dp))
             Row {
-                Button(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    shape = RoundedCornerShape(5.dp),
-                    colors = buttonColors(
-                        containerColor = SecondaryButton,
-                        contentColor = PrimaryButton,
-                    ),
-                    onClick = secondaryButton.action
-                ) {
-                    Text(
-                        text = secondaryButton.label,
-                        fontSize = 16.sp
-                    )
-                }
+                ButtonView(it)
             }
         }
+    }
+}
+
+@Composable
+private fun ButtonView(
+    buttonState: ButtonState
+) {
+    Button(
+        modifier = Modifier
+            .fillMaxWidth(),
+        shape = RoundedCornerShape(5.dp),
+        colors = buttonColors(
+            containerColor = buttonState.type.backgroundColor,
+            contentColor = buttonState.type.textColor,
+        ),
+        onClick = buttonState.action,
+    ) {
+        Text(
+            text = buttonState.label,
+            fontSize = 16.sp
+        )
     }
 }
 
@@ -93,24 +63,43 @@ fun ButtonRow(
     showBackground = true,
     name = "Light Mode"
 )
-@Preview(
-    showBackground = true,
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-    name = "Dark Mode"
-)
 @Composable
 fun ButtonRowPreview() {
     // TODO: Provide this theme through another common module
     ComponentsPOCTheme {
         ButtonRow(
-            primaryButton = ButtonData(
+            primaryButton = ButtonState(
                 label = "Ver más",
                 type = ButtonType.PRIMARY,
                 action = {}
             ),
-            secondaryButton = ButtonData(
+            secondaryButton = ButtonState(
                 label = "Volver al inicio",
                 type = ButtonType.SECONDARY,
+                action = {}
+            )
+        )
+    }
+}
+
+@ExperimentalMaterial3Api
+@Preview(
+    showBackground = true,
+    name = "Light Mode"
+)
+@Composable
+fun ButtonRowPreviewTransparent() {
+    // TODO: Provide this theme through another common module
+    ComponentsPOCTheme {
+        ButtonRow(
+            primaryButton = ButtonState(
+                label = "Ver más",
+                type = ButtonType.PRIMARY,
+                action = {}
+            ),
+            secondaryButton = ButtonState(
+                label = "Volver al inicio",
+                type = ButtonType.TRANSPARENT,
                 action = {}
             )
         )

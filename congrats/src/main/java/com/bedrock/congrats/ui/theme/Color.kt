@@ -16,3 +16,4 @@ val Pink40 = Color(0xFF7D5260)
 
 val PrimaryButton = Color(0xFF009EE3)
 val SecondaryButton = Color(0x26479AD1)
+val Transparent = Color(0x0000000)
