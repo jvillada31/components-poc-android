@@ -52,17 +52,30 @@ dependencies {
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
 
-    // Material 3
-    implementation 'androidx.compose.material3:material3:1.0.0-alpha07'
+    // Compose - Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation "androidx.compose.foundation:foundation:$compose_version"
 
-    // Debug Compose
+    // Compose - Integration with activities
+    implementation "androidx.activity:activity-compose:$compose_activity_version"
+
+    // Compose - Integration with ViewModels
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$compose_viewmodel_version"
+
+    // Compose - Tooling support (Previews, etc.)
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 
+    // Material Design
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.material:material-icons-core:$compose_version"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "androidx.compose.material3:material3:$material_3_version"
+
     // Unit test
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation "junit:junit:$junit_version"
 
     // Android test
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation "androidx.test.ext:junit:$junit_ui_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 }

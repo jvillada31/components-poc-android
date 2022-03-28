@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -62,7 +63,9 @@ fun HeaderRow(
                     text = title,
                     color = Color.White,
                     fontSize = 20.sp,
-                    fontWeight = FontWeight.SemiBold
+                    fontWeight = FontWeight.SemiBold,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 2
                 )
             }
 
@@ -93,7 +96,7 @@ fun HeaderRowPreview() {
     ComponentsPOCTheme {
         HeaderRow(
             backgroundColor = Green,
-            title = "Congrats pantalla verde",
+            title = "Congrats pantalla verde, Congrats pantalla verde, Congrats pantalla verde, " ,
             label = "",
             icon = R.drawable.congrats_ic_product,
             badge = R.drawable.congrats_ic_badge_check
