@@ -18,9 +18,12 @@ import com.bedrock.congrats.R
 import com.bedrock.congrats.ui.theme.ComponentsPOCTheme
 import com.bedrock.congrats.ui.theme.Green
 import com.bedrock.congrats.view.row.ButtonRow
+import com.bedrock.congrats.view.row.DiscountRow
 import com.bedrock.congrats.view.row.HeaderRow
 import com.bedrock.congrats.view.state.ButtonType
 import com.bedrock.congrats.view.state.ButtonViewState
+import com.bedrock.congrats.view.state.Discount
+import com.bedrock.congrats.view.state.DiscountData
 import timber.log.Timber
 
 @ExperimentalMaterial3Api
@@ -46,6 +49,59 @@ class MainActivity : ComponentActivity() {
                                 badge = R.drawable.congrats_ic_badge_check
                             ) {
                                 Timber.d("Hello green Congrats :)")
+                            }
+                        }
+
+                        Row {
+                            Column {
+                                DiscountRow(
+                                    DiscountData(
+                                        title = "Descuentos por tu nivel",
+                                        discounts = listOf(
+                                            Discount(
+                                                icon = R.drawable.congrats_ic_product,
+                                                contentDescription = "Icono de macdonals",
+                                                labelTitle = "Hasta",
+                                                labelPrice = "$ 200"
+                                            ),
+                                            Discount(
+                                                icon = R.drawable.congrats_ic_product,
+                                                contentDescription = "Icono de macdonals",
+                                                labelTitle = "Hasta",
+                                                labelPrice = "$ 100"
+                                            ),
+                                            Discount(
+                                                icon = R.drawable.congrats_ic_product,
+                                                contentDescription = "Icono de macdonals",
+                                                labelTitle = "Hasta",
+                                                labelPrice = "$ 200"
+                                            ),
+                                            Discount(
+                                                icon = R.drawable.congrats_ic_product,
+                                                contentDescription = "Icono de macdonals",
+                                                labelTitle = "Hasta",
+                                                labelPrice = "$ 100"
+                                            ),
+                                            Discount(
+                                                icon = R.drawable.congrats_ic_product,
+                                                contentDescription = "Icono de macdonals",
+                                                labelTitle = "Hasta",
+                                                labelPrice = "$ 200"
+                                            ),
+                                            Discount(
+                                                icon = R.drawable.congrats_ic_product,
+                                                contentDescription = "Icono de macdonals",
+                                                labelTitle = "Hasta",
+                                                labelPrice = "$ 100"
+                                            )
+                                        ),
+                                        buttonViewState = ButtonViewState(
+                                            label = "Ver todos los descuentos",
+                                            type = ButtonType.SECONDARY,
+                                            action = {}
+                                        )
+                                    )
+                                )
                             }
                         }
 

@@ -40,7 +40,7 @@ fun ButtonRow(
 }
 
 @Composable
-private fun ButtonView(
+fun ButtonView(
     buttonViewState: ButtonViewState
 ) {
     Button(

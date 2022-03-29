@@ -10,17 +10,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bedrock.congrats.R
+import com.bedrock.congrats.ui.theme.BackgroundTintDiscountColor
 import com.bedrock.congrats.ui.theme.ComponentsPOCTheme
-import com.bedrock.congrats.view.state.DiscountState
+import com.bedrock.congrats.view.state.ButtonType
+import com.bedrock.congrats.view.state.ButtonViewState
+import com.bedrock.congrats.view.state.Discount
+import com.bedrock.congrats.view.state.DiscountData
 
 @ExperimentalMaterial3Api
 @Composable
 fun DiscountRow(
-    discountsState: List<DiscountState>
+    discountData: DiscountData
 ) {
     Column(
         modifier = Modifier
@@ -33,8 +38,9 @@ fun DiscountRow(
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Descuentos por tu nivel",
-                fontSize = 20.sp
+                text = discountData.title,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.SemiBold
             )
         }
 
@@ -43,21 +49,30 @@ fun DiscountRow(
                 columns = GridCells.Fixed(3),
                 modifier = Modifier
                     .padding(start = 44.dp, end = 44.dp)
-                    .wrapContentSize(),
+                    .fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                val count = if (discountsState.size > 6) 6 else discountsState.size
+                val count = if (discountData.discounts.size > 6) 6 else discountData.discounts.size
                 items(count) { index ->
-                    DiscountView(discountsState[index])
+                    DiscountView(discountData.discounts[index])
                 }
             }
+        }
+
+        Row(
+            modifier = Modifier
+                .padding(start = 32.dp, end = 32.dp, top = 24.dp, bottom = 24.dp)
+        ) {
+            ButtonView(
+                buttonViewState = discountData.buttonViewState
+            )
         }
     }
 }
 
 @Composable
 private fun DiscountView(
-    discountState: DiscountState
+    discount: Discount
 ) {
     Column(
         modifier = Modifier
@@ -69,14 +84,15 @@ private fun DiscountView(
             horizontalArrangement = Arrangement.Center
         ) {
             IconButton(
-                onClick = discountState.action,
+                onClick = discount.action,
                 modifier = Modifier
                     .width(54.dp)
                     .height(54.dp)
             ) {
                 Icon(
-                    painter = painterResource(id = discountState.icon),
-                    contentDescription = discountState.contentDescription
+                    tint = BackgroundTintDiscountColor,
+                    contentDescription = discount.contentDescription,
+                    painter = painterResource(id = discount.icon)
                 )
             }
         }
@@ -88,8 +104,9 @@ private fun DiscountView(
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = discountState.labelTime,
-                fontSize = 12.sp
+                text = discount.labelTitle,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Light
             )
         }
 
@@ -100,8 +117,9 @@ private fun DiscountView(
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = discountState.labelPrice,
-                fontSize = 20.sp
+                text = discount.labelPrice,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.SemiBold
             )
         }
     }
@@ -117,42 +135,50 @@ fun DiscountRowPreview() {
     // TODO: Provide this theme through another common module
     ComponentsPOCTheme {
         DiscountRow(
-            listOf(
-                DiscountState(
-                    icon = R.drawable.congrats_ic_product,
-                    contentDescription = "Icono de macdonals",
-                    labelTime = "Hasta",
-                    labelPrice = "$ 200"
+            DiscountData(
+                title = "Descuentos por tu nivel",
+                discounts = listOf(
+                    Discount(
+                        icon = R.drawable.congrats_ic_product,
+                        contentDescription = "Icono de macdonals",
+                        labelTitle = "Hasta",
+                        labelPrice = "$ 200"
+                    ),
+                    Discount(
+                        icon = R.drawable.congrats_ic_product,
+                        contentDescription = "Icono de macdonals",
+                        labelTitle = "Hasta",
+                        labelPrice = "$ 100"
+                    ),
+                    Discount(
+                        icon = R.drawable.congrats_ic_product,
+                        contentDescription = "Icono de macdonals",
+                        labelTitle = "Hasta",
+                        labelPrice = "$ 200"
+                    ),
+                    Discount(
+                        icon = R.drawable.congrats_ic_product,
+                        contentDescription = "Icono de macdonals",
+                        labelTitle = "Hasta",
+                        labelPrice = "$ 100"
+                    ),
+                    Discount(
+                        icon = R.drawable.congrats_ic_product,
+                        contentDescription = "Icono de macdonals",
+                        labelTitle = "Hasta",
+                        labelPrice = "$ 200"
+                    ),
+                    Discount(
+                        icon = R.drawable.congrats_ic_product,
+                        contentDescription = "Icono de macdonals",
+                        labelTitle = "Hasta",
+                        labelPrice = "$ 100"
+                    )
                 ),
-                DiscountState(
-                    icon = R.drawable.congrats_ic_product,
-                    contentDescription = "Icono de macdonals",
-                    labelTime = "Hasta",
-                    labelPrice = "$ 100"
-                ),
-                DiscountState(
-                    icon = R.drawable.congrats_ic_product,
-                    contentDescription = "Icono de macdonals",
-                    labelTime = "Hasta",
-                    labelPrice = "$ 200"
-                ),
-                DiscountState(
-                    icon = R.drawable.congrats_ic_product,
-                    contentDescription = "Icono de macdonals",
-                    labelTime = "Hasta",
-                    labelPrice = "$ 100"
-                ),
-                DiscountState(
-                    icon = R.drawable.congrats_ic_product,
-                    contentDescription = "Icono de macdonals",
-                    labelTime = "Hasta",
-                    labelPrice = "$ 200"
-                ),
-                DiscountState(
-                    icon = R.drawable.congrats_ic_product,
-                    contentDescription = "Icono de macdonals",
-                    labelTime = "Hasta",
-                    labelPrice = "$ 100"
+                buttonViewState = ButtonViewState(
+                    label = "Ver todos los descuentos",
+                    type = ButtonType.SECONDARY,
+                    action = {}
                 )
             )
         )
