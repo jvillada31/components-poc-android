@@ -18,9 +18,9 @@ import com.bedrock.congrats.R
 import com.bedrock.congrats.ui.theme.ComponentsPOCTheme
 import com.bedrock.congrats.ui.theme.Green
 import com.bedrock.congrats.view.row.ButtonRow
-import com.bedrock.congrats.view.row.ButtonViewState
-import com.bedrock.congrats.view.row.ButtonType
 import com.bedrock.congrats.view.row.HeaderRow
+import com.bedrock.congrats.view.state.ButtonType
+import com.bedrock.congrats.view.state.ButtonViewState
 import timber.log.Timber
 
 @ExperimentalMaterial3Api
