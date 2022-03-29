@@ -60,6 +60,7 @@ dependencies {
 
     // Compose - Integration with ViewModels
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$compose_viewmodel_version"
+    implementation 'io.coil-kt:coil-compose:2.0.0-rc02'
 
     // Compose - Tooling support (Previews, etc.)
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"

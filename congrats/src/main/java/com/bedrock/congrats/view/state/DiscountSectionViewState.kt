@@ -1,13 +1,13 @@
 package com.bedrock.congrats.view.state
 
-data class DiscountData(
+data class DiscountSectionViewState(
     val title: String,
-    val discounts: List<Discount>,
+    val discounts: List<DiscountViewState>,
     val buttonViewState: ButtonViewState
 )
 
-data class Discount(
-    val icon: Int,
+data class DiscountViewState(
+    val icon: String,
     val contentDescription: String? = null,
     val labelTitle: String,
     val labelPrice: String,
