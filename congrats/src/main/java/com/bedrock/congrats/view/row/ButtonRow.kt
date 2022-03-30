@@ -12,6 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bedrock.congrats.ui.theme.ComponentsPOCTheme
+import com.bedrock.congrats.view.state.ButtonType
+import com.bedrock.congrats.view.state.ButtonViewState
 
 @ExperimentalMaterial3Api
 @Composable
@@ -38,7 +40,7 @@ fun ButtonRow(
 }
 
 @Composable
-private fun ButtonView(
+fun ButtonView(
     buttonViewState: ButtonViewState
 ) {
     Button(

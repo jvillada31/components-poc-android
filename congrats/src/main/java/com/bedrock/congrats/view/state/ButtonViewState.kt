@@ -1,4 +1,4 @@
-package com.bedrock.congrats.view.row
+package com.bedrock.congrats.view.state
 
 import androidx.compose.ui.graphics.Color
 import com.bedrock.congrats.ui.theme.PrimaryButtonColor
