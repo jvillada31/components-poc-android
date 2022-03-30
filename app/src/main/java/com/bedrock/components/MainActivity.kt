@@ -20,10 +20,8 @@ import com.bedrock.congrats.ui.theme.Green
 import com.bedrock.congrats.view.row.ButtonRow
 import com.bedrock.congrats.view.row.DiscountRow
 import com.bedrock.congrats.view.row.HeaderRow
-import com.bedrock.congrats.view.state.ButtonType
-import com.bedrock.congrats.view.state.ButtonViewState
-import com.bedrock.congrats.view.state.DiscountViewState
-import com.bedrock.congrats.view.state.DiscountSectionViewState
+import com.bedrock.congrats.view.row.OperationRow
+import com.bedrock.congrats.view.state.*
 import timber.log.Timber
 
 @ExperimentalMaterial3Api
@@ -38,7 +36,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier
                             .background(color = Color.White)
                             .fillMaxWidth()
-                            .fillMaxHeight(),
+                            .fillMaxHeight()
                     ) {
                         Row {
                             HeaderRow(
@@ -52,8 +50,25 @@ class MainActivity : ComponentActivity() {
                             }
                         }
 
-                        Row {
-                            Column {
+                        Column {
+                            Row {
+                                OperationRow(
+                                    operations = listOf(
+                                        OperationViewState(
+                                            icon = "https://mobile.mercadolibre.com/remote_resources/image/px_congrats_money_split_mp?density=xxhdpi&locale=es_AR",
+                                            labelTitle = "$ 12.000",
+                                            labelSubTitle = "Santander Rio ****3260"
+                                        ),
+                                        OperationViewState(
+                                            icon = "https://mobile.mercadolibre.com/remote_resources/image/wallet_home_shortcuts_charge_qr?density=xxxhdpi&locale=es_AR",
+                                            labelTitle = "$ 12.000",
+                                            labelSubTitle = "Santander Rio ****3260"
+                                        )
+                                    )
+                                )
+                            }
+
+                            Row {
                                 DiscountRow(
                                     DiscountSectionViewState(
                                         title = "Descuentos por tu nivel",
