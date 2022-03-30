@@ -43,6 +43,21 @@ fun DiscountRow(
             )
         }
 
+        discountSectionViewState.subTitle?.let {
+            Row(
+                modifier = Modifier
+                    .padding(start = 32.dp, top = 1.dp, end = 32.dp)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = it,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.W400
+                )
+            }
+        }
+
         Row {
             LazyVerticalGrid(
                 columns = GridCells.Fixed(3),

@@ -2,6 +2,7 @@ package com.bedrock.congrats.view.state
 
 data class DiscountSectionViewState(
     val title: String,
+    val subTitle: String? = null,
     val discounts: List<DiscountViewState>,
     val buttonViewState: ButtonViewState
 )
