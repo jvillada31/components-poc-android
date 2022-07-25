@@ -55,7 +55,7 @@ dependencies {
 
     // Android framework
     implementation "androidx.core:core-ktx:$ktx_core_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
     implementation "androidx.activity:activity-compose:$compose_activity_version"
 
     // Compose
